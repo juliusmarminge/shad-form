@@ -2,12 +2,22 @@
 
 import { useState } from "react";
 import { z } from "zod";
-import { useForm, UseFormProps } from "react-hook-form";
+import { useForm, UseFormProps, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "~/ui/input";
 import { Button } from "~/ui/button";
 import { Label } from "~/ui/label";
 import { Textarea } from "~/ui/text-area";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "~/ui/select";
 
 function useZodForm<TSchema extends z.ZodType>(
   props: Omit<UseFormProps<TSchema["_input"]>, "resolver"> & {
@@ -25,7 +35,7 @@ function useZodForm<TSchema extends z.ZodType>(
 const PET = {
   DOG: "DOG",
   CAT: "CAT",
-  IDK: "IDK",
+  BIRD: "BIRD",
 } as const;
 
 const schema = z.object({
@@ -89,6 +99,24 @@ export default function FormTest() {
         </div>
         <div className="space-y-1">
           <Label htmlFor="pet">Pet</Label>
+          <Controller
+            control={methods.control}
+            name="pet"
+            render={({ field }) => (
+              <Select value={field.value} onValueChange={field.onChange}>
+                <SelectTrigger className="bg-slate-800">
+                  <SelectValue placeholder="Select a fruit" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Object.entries(PET).map(([key, value]) => (
+                    <SelectItem key={key} value={value}>
+                      {value}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+          />
 
           <p className="text-red-500 font-medium">
             {methods.formState.errors?.pet?.message}
