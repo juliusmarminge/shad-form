@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { z } from "zod";
-import { useForm, type UseFormProps, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller } from "react-hook-form";
 import { Input } from "~/ui/input";
 import { Button } from "~/ui/button";
 import { Label } from "~/ui/label";
@@ -16,19 +15,7 @@ import {
   SelectValue,
 } from "~/ui/select";
 import Link from "next/link";
-
-function useZodForm<TSchema extends z.ZodType>(
-  props: Omit<UseFormProps<TSchema["_input"]>, "resolver"> & {
-    schema: TSchema;
-  }
-) {
-  const form = useForm<TSchema["_input"]>({
-    ...props,
-    resolver: zodResolver(props.schema, undefined),
-  });
-
-  return form;
-}
+import { useZodForm } from "~/utils/zod-form";
 
 const PET = {
   DOG: "DOG",
