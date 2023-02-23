@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { z } from "zod";
-import { useForm, UseFormProps, Controller } from "react-hook-form";
+import { useForm, type UseFormProps, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "~/ui/input";
 import { Button } from "~/ui/button";
@@ -11,13 +11,11 @@ import { Textarea } from "~/ui/text-area";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "~/ui/select";
+import Link from "next/link";
 
 function useZodForm<TSchema extends z.ZodType>(
   props: Omit<UseFormProps<TSchema["_input"]>, "resolver"> & {
@@ -57,12 +55,18 @@ export default function FormTest() {
   });
 
   const [result, setResult] = useState({ name: "", email: "" });
-  const onSubmit = methods.handleSubmit((data) => {
-    setResult(data); // send to backend or smth
-  });
+  const onSubmit = methods.handleSubmit(
+    (data) => {
+      setResult(data); // send to backend or smth
+    },
+    (e) => {
+      console.log(e);
+    }
+  );
 
   return (
     <div className="max-w-2xl py-16 mx-auto space-y-8">
+      <Link href="/multistep">Go to multistep form</Link>
       <form action="" className="flex flex-col gap-4" onSubmit={onSubmit}>
         <div className="space-y-1">
           <Label htmlFor="name">Name</Label>

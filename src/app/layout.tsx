@@ -1,15 +1,15 @@
 import "../styles/globals.css";
-import { Inter as FontSans } from "@next/font/google";
+import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "~/utils/cn";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-export default async function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="dark">
       <head>
