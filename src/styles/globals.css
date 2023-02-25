@@ -5,16 +5,22 @@
 @layer base {
   :root {
     --bg-gradient: linear-gradient(
-      25deg,
-      hsl(240deg 15% 13%) 0%,
-      hsl(233deg 22% 15%) 11%,
-      hsl(226deg 30% 17%) 23%,
-      hsl(221deg 40% 18%) 36%,
-      hsl(215deg 52% 19%) 48%,
-      hsl(221deg 62% 26%) 61%,
-      hsl(238deg 46% 36%) 74%,
-      hsl(264deg 54% 40%) 87%,
-      hsl(287deg 84% 36%) 100%
+      17deg,
+      hsl(267deg 100% 7%) 1%,
+      hsl(336deg 62% 17%) 38%,
+      hsl(352deg 67% 29%) 46%,
+      hsl(358deg 71% 42%) 49%,
+      hsl(6deg 71% 56%) 51%,
+      hsl(10deg 76% 70%) 51%,
+      hsl(14deg 70% 84%) 51%,
+      hsl(174deg 100% 96%) 50%,
+      hsl(230deg 55% 84%) 49%,
+      hsl(240deg 51% 71%) 49%,
+      hsl(237deg 51% 56%) 49%,
+      hsl(232deg 59% 40%) 51%,
+      hsl(235deg 52% 28%) 54%,
+      hsl(237deg 44% 17%) 62%,
+      hsl(236deg 70% 4%) 99%
     );
   }
   body {

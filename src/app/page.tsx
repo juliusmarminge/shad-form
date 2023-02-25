@@ -44,7 +44,7 @@ export default function Multistep() {
 
   return (
     <div className="max-w-2xl py-16 mx-auto space-y-8">
-      <h1 className="text-3xl font-bold">Multistep form</h1>
+      <h1 className="text-3xl font-bold text-center">tRPC + RHF</h1>
       <div className="space-y-8">
         {step === 1 && (
           <Step1
